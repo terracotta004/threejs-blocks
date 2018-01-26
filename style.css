@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#fontLabel {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  color: white;
+  bottom: 50px;
+  left: 50px;
+}
