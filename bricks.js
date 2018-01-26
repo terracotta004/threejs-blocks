@@ -48,7 +48,7 @@ window.onload = function () {
     // scene.add(pivot);
     // camera.position.set(300, 30, 900);
 
-    const animate = function (mesh) {
+    const animate = function () {
 
       mesh.rotation.z += 0.01;
       // mesh.rotation.y += 0.25;
@@ -60,7 +60,7 @@ window.onload = function () {
 
     };
 
-    animate(mesh);
+    animate();
 
   };
 
