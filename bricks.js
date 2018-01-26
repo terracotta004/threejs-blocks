@@ -1,61 +1,69 @@
-let renderer,
-  scene,
-  camera,
-  myCanvas = document.getElementById('myCanvas');
+window.onload = function () {
+  "use strict";
 
-// RENDERER
-renderer = new THREE.WebGLRenderer({
-  canvas: myCanvas,
-  antialias: true
-});
-renderer.setClearColor(0xFFFFFF);
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+  const main = function () {
 
-// CAMERA
-camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000);
+    let renderer,
+      scene,
+      camera,
+      myCanvas = document.getElementById('myCanvas');
 
-// SCENE
-scene = new THREE.Scene();
+    // RENDERER
+    renderer = new THREE.WebGLRenderer({
+      canvas: myCanvas,
+      antialias: true
+    });
+    renderer.setClearColor(0xFFFFFF);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-// LIGHTS
-let light = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(light);
+    // CAMERA
+    camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000);
 
-let light2 = new THREE.PointLight(0xffffff, 0.5);
+    // SCENE
+    scene = new THREE.Scene();
 
-scene.add(light2);
+    // LIGHTS
+    let light = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(light);
 
-let geometry = new THREE.BoxGeometry( 10, 5, 10 );
+    let light2 = new THREE.PointLight(0xffffff, 0.5);
 
-let material = new THREE.MeshLambertMaterial({
-  color: 0x00FF00
-});
+    scene.add(light2);
 
-let mesh = new THREE.Mesh(geometry, material);
-mesh.position.z = -100;
-mesh.rotation.z = 0.25;
-mesh.rotation.y = 0.25;
-mesh.rotation.x = 0.25;
+    let geometry = new THREE.BoxGeometry( 10, 5, 10 );
 
-// let pivot = new THREE.Group();
-scene.add(mesh);
-// scene.add(pivot);
-// camera.position.set(300, 30, 900);
+    let material = new THREE.MeshLambertMaterial({
+      color: 0x00FF00
+    });
 
-function render() {
+    let mesh = new THREE.Mesh(geometry, material);
+    mesh.position.z = -100;
+    mesh.rotation.z = 0.25;
+    mesh.rotation.y = 0.25;
+    mesh.rotation.x = 0.25;
 
-  mesh.rotation.z += 0.01;
-  // mesh.rotation.y += 0.25;
-  // mesh.rotation.x += 0.25;
+    // let pivot = new THREE.Group();
+    scene.add(mesh);
+    // scene.add(pivot);
+    // camera.position.set(300, 30, 900);
 
-  renderer.render(scene, camera);
+    const animate = function (mesh) {
 
-  requestAnimationFrame(render);
+      mesh.rotation.z += 0.01;
+      // mesh.rotation.y += 0.25;
+      // mesh.rotation.x += 0.25;
+
+      renderer.render(scene, camera);
+
+      requestAnimationFrame(render);
+
+    };
+
+    animate(mesh);
+
+  };
+
+  main();
 
 }
-
-// document.body.appendChild(fontLabel);
-
-//RENDER LOOP
-render();
