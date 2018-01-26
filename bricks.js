@@ -29,23 +29,35 @@ scene.add(light2);
 let geometry = new THREE.BoxGeometry( 10, 5, 10 );
 
 let material = new THREE.MeshLambertMaterial({
-  color: 0x00FF00
+  color: 0xff0000
 });
 
 let mesh = new THREE.Mesh(geometry, material);
-mesh.position.z = -100;
-mesh.rotation.z = 0.25;
-mesh.rotation.y = 0.25;
-mesh.rotation.x = 0.25;
+
+let brick = new THREE.Group();
+brick.add(mesh);
+
+geometry = new THREE.CylinderGeometry( 1, 1, 5, 32 );
+material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+let cylinder = new THREE.Mesh( geometry, material );
+cylinder.position.y -= -5;
+cylinder.position.z -= -3;
+cylinder.position.x -= -3;
+brick.add( cylinder );
+
+brick.position.z = -100;
+brick.rotation.z = 0.25;
+brick.rotation.y = 0.25;
+brick.rotation.x = 0.25;
 
 // let pivot = new THREE.Group();
-scene.add(mesh);
+scene.add(brick);
 // scene.add(pivot);
 // camera.position.set(300, 30, 900);
 
 function render() {
 
-  mesh.rotation.z += 0.01;
+  brick.rotation.z += 0.01;
   // mesh.rotation.y += 0.25;
   // mesh.rotation.x += 0.25;
 
