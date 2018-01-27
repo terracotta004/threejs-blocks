@@ -14,11 +14,17 @@ window.onload = function () {
       antialias: true
     });
 
-    let width = (((window.innerWidth / 12) * 9) - 10);
+    let width = $("#sidebar").width();
+    width = (width * -1) / 2;
+
+    $("#container").offset({
+      left: width
+    });
 
     renderer.setClearColor(0xFFFFFF);
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(width, window.innerHeight);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
 
     // CAMERA
     camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -39,6 +45,8 @@ window.onload = function () {
     let material = new THREE.MeshLambertMaterial({
       color: 0x00FF00
     });
+
+    // let material = new THREE.MeshToonMaterial();
 
     let mesh = new THREE.Mesh(geometry, material);
     mesh.position.z = -100;
