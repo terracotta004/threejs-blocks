@@ -1,3 +1,6 @@
+window.onload = function () {
+  "use strict";
+  const main = function () {
 let renderer,
   scene,
   camera,
@@ -55,7 +58,7 @@ scene.add(brick);
 // scene.add(pivot);
 // camera.position.set(300, 30, 900);
 
-function render() {
+  const animate = function () {
 
   brick.rotation.z += 0.01;
   // mesh.rotation.y += 0.25;
@@ -65,9 +68,15 @@ function render() {
 
   requestAnimationFrame(render);
 
-}
+};
 
 // document.body.appendChild(fontLabel);
 
 //RENDER LOOP
-render();
+animate();
+
+};
+
+main();
+
+}
