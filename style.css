@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #fontLabel {
@@ -10,4 +10,22 @@ body {
   color: white;
   bottom: 50px;
   left: 50px;
+}
+
+#viewpoint {
+
+}
+
+#sidebar {
+  border-left: solid thin gainsboro;
+  background-color: ghostwhite;
+  box-shadow: -.1em -.1em .35em gainsboro;
+}
+
+.brick {
+  opacity: 0.5;
+}
+
+.selected {
+  opacity: 1;
 }

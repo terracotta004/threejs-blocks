@@ -1,17 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <title>threejs - textgeometry</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Bricks</title>
+      <!-- <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7.css"> -->
+      <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
+
   <body>
-    <canvas id="myCanvas"></canvas>
+    <div class="container-fluid">
+      <div class="row">
+          <div id="viewpoint" class="col-sm-9" style="padding: 0;">
+            <div class="affix">
+              <canvas id="myCanvas"></canvas>
+            </div>
+          </div>
+          <div id="sidebar" class="col-sm-3">
+            <div class="panel panel-default" style="margin-top: 2em;">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick1"
+                    class="img-responsive brick selected">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick2"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick3"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick4"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" style="margin-top: 2em;">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick5"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick6"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick7"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick8"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" style="margin-top: 2em;">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick9"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick10"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick11"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="brick.jpg" id="brick12"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+    </div>
 
     <script src="three.js"></script>            <!-- 3D JS library built on WebGL -->
     <script src="jquery.min.js"></script>       <!-- includes helpful methods -->
-    <script src="iterator.js"></script>			    <!-- enables mode switching -->
-    <script src="keypress.js"></script>			    <!-- detects keypresses -->
+    <!-- <script src="iterator.js"></script>			    <!-- enables mode switching -->
+    <!-- <script src="keypress.js"></script>			    <!-- detects keypresses -->
+    <script src="select.js"></script>
     <script src="bricks.js"></script>
 
   </body>
