@@ -11,9 +11,12 @@ renderer = new THREE.WebGLRenderer({
   canvas: myCanvas,
   antialias: true
 });
+
+let width = (((window.innerWidth / 12) * 9) - 10);
+
 renderer.setClearColor(0xFFFFFF);
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(width, window.innerHeight);
 
 // CAMERA
 camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -66,7 +69,7 @@ scene.add(brick);
 
   renderer.render(scene, camera);
 
-  requestAnimationFrame(render);
+  requestAnimationFrame(animate);
 
 };
 
