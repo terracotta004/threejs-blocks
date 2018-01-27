@@ -40,7 +40,7 @@ window.onload = function () {
     // light2.position.set(0, 0, 0);
     scene.add(light2);
 
-    let geometry = new THREE.BoxGeometry( 10, 5, 10 );
+    let geometry = new THREE.BoxGeometry( 10, 5, 7 );
 
     let material = new THREE.MeshLambertMaterial({
       color: 0x00FF00
@@ -62,6 +62,7 @@ window.onload = function () {
 
     for (let i = 0; i < 6; i++) {
       nubs[i] = new THREE.Mesh(geometry, material);
+      nubs[i].position.z = -1.25;
     }
 
     nubs[0].position.y += 2.5;
@@ -78,6 +79,21 @@ window.onload = function () {
     nubs[2].position.z += 3;
     nubs[2].position.x += -3;
     brick.add(nubs[2]);
+
+    nubs[3].position.y += 2.5;
+    nubs[3].position.z += 0;
+    nubs[3].position.x += 3;
+    brick.add(nubs[3]);
+
+    nubs[4].position.y += 2.5;
+    nubs[4].position.z += 0;
+    nubs[4].position.x += 0;
+    brick.add(nubs[4]);
+
+    nubs[5].position.y += 2.5;
+    nubs[5].position.z += 0;
+    nubs[5].position.x += -3;
+    brick.add(nubs[5]);
 
     brick.position.z = -100;
     brick.rotation.z = 0.25;
@@ -96,8 +112,8 @@ window.onload = function () {
 
     const animate = function () {
       // console.log(brick.rotation.z);
-      rotationLabel.innerHTML = "Z Rotation: " + brick.rotation.z;
-      // brick.rotation.z += 0.01;
+      rotationLabel.innerHTML = "Y Rotation: " + brick.rotation.y;
+      brick.rotation.y += 0.01;
       // mesh.rotation.y += 0.25;
       // mesh.rotation.x += 0.25;
 
