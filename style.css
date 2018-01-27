@@ -3,11 +3,11 @@ body {
   overflow-x: hidden;
 }
 
-#fontLabel {
+#rotationLabel {
   position: absolute;
-  width: 100px;
+  width: 500px;
   height: 20px;
-  color: white;
+  color: black;
   bottom: 50px;
   left: 50px;
 }
