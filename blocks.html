@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>blocks</title>
+      <!-- <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7.css"> -->
+      <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="viewpoint" class="col-xs-9 no-padding">
+            <div id="container" class="affix">
+              <!--<div class="progressBar" id="pbOut">-->
+              <!--  <div class="progressBar" id="pbIn">-->
+                  
+              <!--  </div>-->
+              <!--</div>-->
+              <canvas id="myCanvas"></canvas>
+            </div>
+          </div>
+        <div id="sidebar" class="col-xs-3">
+          <div class="sidebar-header margin1">
+            <h3 class="text-center">blocks with three.js</h3>
+          </div>
+          <!--<p id="label"></p>-->
+          
+          <!--<button type="button" id="add_button" class="btn btn-default btn-block" onclick="addToScene();">Add Block to Scene</button>-->
+          
+          <!--<div class="panel-group">-->
+            
+          <!--</div>-->
+          
+          <ul id ="instructions">
+            <li>Move guide block: <span class="pull-right"><kbd>q</kbd> <kbd>w</kbd> <kbd>e</kbd> <kbd>a</kbd> <kbd>s</kbd> <kbd>d</kbd></span></li>
+            <li>Place/remove block: <span class="pull-right"><kbd>spacebar</kbd></span></li>
+            <li>Cycle block type: <span class="pull-right"><kbd>tab</kbd></span></li>
+            <li>Pick/cycle color: <span class="pull-right"><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> / <kbd>`</kbd></span></li>
+            <li>Hide/show guide block: <span class="pull-right"><kbd>h</kbd></span></li>
+            <li>Toggle minifig guide: <span class="pull-right"><kbd>m</kbd></span></li>
+          </ul>
+
+          <div class="panel-group" id="accordian">
+            <div class="panel panel-default margin1">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#camera">Camera Controls</a>
+                </h4>
+              </div>
+              <div id="camera" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <label>Turntable</label>
+                   <div class="material-switch pull-right">
+                      <input id="turntableMode" name="turntableMode" type="checkbox"/>
+                      <label for="turntableMode" class="label-primary"></label>
+                   </div>
+                        <br>
+                <label for="zoom" class="margin1">Zoom</label>
+                <input type="range" id="zoom" min="5" max="75" step="0.01">
+                
+                <label for="rotateX" class="margin1">Rotation (X-axis)</label>
+                <input type="range" id="rotateX" min="-2" max="2" step="0.01" value="-0.52">
+                <label for="rotateY" class="margin1">Rotation (Y-axis)</label>
+                <input type="range" id="rotateY" min="-1" max="1" step="0.01">
+                <label for="rotateZ" class="margin1">Rotation (Z-axis)</label>
+                <input type="range" id="rotateZ" min="-1" max="1" step="0.01">
+                
+                <label for="panHorizontal" class="margin1">Pan (X-Axis)</label>
+                <input type="range" id="panHorizontal" min="-50" max="50" step="0.01">
+                <label for="panVertical" class="margin1">Pan (Y-Axis)</label>
+                
+                <input type="range" id="panVertical" min="0" max="160" step="0.01" value="80">
+                <label for="panDepth" class="margin1">Pan (Z-Axis)</label>
+                <input type="range" id="panDepth" min="15" max="250" step="0.01" value="132.45">
+                <label for="panVertical" class="margin1">Pan (Peter)</label>
+                <input type="range" id="panPeter" min="-50" max="50" step="0.01">
+              </div>
+            </div>
+          </div>
+          </div>
+            </div>
+            <div class="panel panel-default margin1">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#2x2" id="2x2link">2x2 Bricks</a>
+                </h4>
+              </div>
+              <div id="2x2" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="image/green2x2.png" id="green2x2" onclick="selectPiece(this);"
+                    class="img-responsive brick selected">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="image/blue2x2.png" id="blue2x2" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="image/red2x2.png" id="red2x2" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="image/yellow2x2.png" id="yellow2x2" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default margin1">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#2x3" id="2x3link">2x3 Bricks</a>
+                </h4>
+              </div>
+              <div id="2x3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="image/green2x3.png" id="green2x3" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="image/blue2x3.png" id="blue2x3" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="image/red2x3.png" id="red2x3" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="image/yellow2x3.png" id="yellow2x3" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="panel panel-default margin1">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#1x1" id="1x1link">1x1 Bricks</a>
+                </h4>
+              </div>
+              <div id="1x1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="image/green1x1.png" id="green1x1" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="image/blue1x1.png" id="blue1x1" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <img src="image/red1x1.png" id="red1x1" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="image/yellow1x1.png" id="yellow1x1" onclick="selectPiece(this);"
+                    class="img-responsive brick">
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="three.js"></script>              <!-- 3D JS library built on WebGL -->
+    <script src="cannon.min.js"></script>         <!-- physics engine for JS -->
+    <script src="jquery.min.js"></script>         <!-- includes helpful methods -->
+    <script src="OBJLoader.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+    crossorigin="anonymous"></script>
+    
+    <script src="iterator.js"></script>	          <!-- enables mode switching 
+    <!-- <script src="keypress.js"></script>			<!-- detects keypresses -->
+    <script src="font/pragmatapro.js"></script>   <!-- brick font -->
+    <script src="brickConstructor.js"></script>   <!-- functions to create bricks -->
+    <script src="select.js"></script>             <!-- detects mouseclick -->
+    <script src="blocks.js"></script>             <!-- main file -->
+
+  </body>
+</html>

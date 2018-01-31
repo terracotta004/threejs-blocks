@@ -3,23 +3,29 @@ body {
   overflow-x: hidden;
 }
 
-#rotationLabel {
-  position: absolute;
-  width: 500px;
-  height: 20px;
-  color: black;
-  bottom: 50px;
-  left: 50px;
+#instructions {
+  padding-left: 0;
 }
 
 #viewpoint {
   height: 100vh;
 }
 
+#rotationLabel {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  color: black;
+  bottom: 100px;
+  left: 50px;
+  z-index: -1;
+}
+
 #sidebar {
   border-left: solid thin gainsboro;
+  border-bottom: solid thin gainsboro;
   background-color: ghostwhite;
-  box-shadow: -.1em -.1em .35em gainsboro;
+  box-shadow: -.10em .05em .25em .25em gainsboro;
 }
 
 .brick {
@@ -29,3 +35,89 @@ body {
 .selected {
   opacity: 1;
 }
+
+.margin1 {
+  margin-top: 1em;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+img {
+    display:block;
+    margin:auto;
+}
+
+h3 {
+  margin-top: 0.25em;
+}
+
+* {
+  user-select: none;
+}
+
+.material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  padding-left: 1em;
+  /*margin: 0 auto;*/
+}
+
+/*div .progressBar {*/
+/*  width: 200px;*/
+/*  height: 20px;*/
+/*  background: #000;*/
+/*  border: 2px solid #000;*/
+/*}*/
+/*div > div .progressBar {*/
+/*  width: 200px;*/
+/*  height: 20px;*/
+/*  background: red;*/
+/*  border: none;*/
+/*}*/
